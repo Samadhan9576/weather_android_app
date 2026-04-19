@@ -9,7 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.weather.presentation.navigation.Screen
 import com.example.weather.presentation.navigation.Screen.Companion.getStartDestination
-import com.example.weather.presentation.sreen.Demo
+import com.example.weather.presentation.sreen.WeatherScreen
 import com.example.weather.presentation.sreen.WelcomeScreen
 import com.example.weather.viewModel.WeatherViewModel
 
@@ -28,7 +28,7 @@ fun SetupNavGraph(navController: NavHostController, weatherViewModel: WeatherVie
         }
 
         composable(route = Screen.Demo.route) {
-            Demo(navController,weatherViewModel)
+            WeatherScreen(navController,weatherViewModel)
         }
     }
 }

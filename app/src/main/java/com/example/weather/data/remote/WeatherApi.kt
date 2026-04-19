@@ -1,14 +1,22 @@
 package com.example.weather.data.remote
 
-import com.example.weather.model.ResponseModel
+import com.example.weather.model.WeatherResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WeatherApi {
 
-    @GET("/v1/current.json")
+    @GET("data/2.5/weather")
     suspend fun getWeather(
-        @Query("key") apiKey : String,
-        @Query("q") city : String
-    ): ResponseModel
+        @Query("q") city: String,
+        @Query("appid") apiKey: String
+    ): WeatherResponse
+
+    @GET("data/2.5/weather")
+    suspend fun getWeather(
+        @Query("lat") latitude: Double,
+        @Query("lon") longitude: Double,
+        @Query("appid") apiKey: String
+    ): WeatherResponse
+
 }

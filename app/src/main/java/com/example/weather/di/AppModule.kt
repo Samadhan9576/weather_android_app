@@ -9,7 +9,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Headers
-import okhttp3.Interceptor.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -82,9 +81,10 @@ object AppModule {
     @Singleton
     fun providesWeatherApi(client: OkHttpClient): WeatherApi {
         // Replace with your actual base URL
+         val BASE_URL = "https://api.openweathermap.org/"
         val baseUrl = "https://api.weatherapi.com/"
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
